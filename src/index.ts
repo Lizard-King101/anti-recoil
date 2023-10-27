@@ -13,27 +13,13 @@ declare global {
             paths: {
                 [key:string]: string;
             },
-            config: Config
         }
     }
 }
 
-var args: any = false;
-process.argv.slice(2).forEach((arg)=> {
-    args = {};
-    let split = arg.split('=');
-    if(split.length > 1){
-        args[split[0]] = split[1];
-    } else {
-        args[arg] = true;
-    }
-});
-
 global.paths = {
     root: path.join(__dirname, '../')
 }
-global.paths.cache = path.join(global.paths.root, 'cache');
-global.config = require(path.join(global.paths.root, 'config.json'));
 
 // console.log(global.config);
 
